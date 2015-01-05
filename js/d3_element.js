@@ -43,3 +43,18 @@ d3Elements.element.circle = function(divId,cirRadius){
 	    .attr("r",cirRadius)
 	    .style("fill", "green");
 }
+
+/**
+ * Javascript function to create rectangle using d3
+ * @param divId
+ */
+d3Elements.element.rectangle = function(divId){
+
+	 d3.select("#"+divId).append("svg")
+	    .append("rect")
+	    .attr("x",100)
+	    .attr("y",100)
+	    .attr("width", 50)
+	    .attr("height", 100)
+	    .style("fill", "green");
+}
