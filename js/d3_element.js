@@ -58,3 +58,18 @@ d3Elements.element.rectangle = function(divId){
 	    .attr("height", 100)
 	    .style("fill", "green");
 }
+
+/**
+ * Javascript function to create line using d3
+ * @param divId
+ */
+d3Elements.element.line = function(divId){
+	
+	d3.select("#"+divId).append("svg")
+	   .append("line")
+	   .attr("x1",10)
+	   .attr("y1",20)
+	   .attr("x2",100)
+	   .attr("y2",200)
+	   .style("stroke", "green");	
+}
