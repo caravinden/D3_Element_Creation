@@ -41,7 +41,13 @@ d3Elements.element.circle = function(divId,cirRadius){
 	    .attr("cx",100)
 	    .attr("cy",100)
 	    .attr("r",cirRadius)
-	    .style("fill", "green");
+	    .style("fill", "green")
+.transition()
+    .delay(100)
+    .duration(1000)    
+    .attr("r", 10)
+    .attr("cx", 30)
+    .style("fill", "red");
 }
 
 /**
