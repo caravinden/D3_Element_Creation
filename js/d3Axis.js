@@ -20,12 +20,11 @@ var yAxis_g = svgContainer.append("g").attr("class", "y axis").call(yAxis).appen
 
 d3.select(window).on('resize', resize); 
 
+// Resize the chart based on window size
 function resize() {
-	console.log('----resize function----');
     // update width
     width = parseInt(d3.select('#chartID').style('width'), 10);
     width = width - margin.left - margin.right;
-	console.log('----resiz width----'+width);
     // resize the chart
     if(width<870){
     	xScale.range([0, width]);
