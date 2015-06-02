@@ -33,7 +33,7 @@
 
   var svgContainer = d3.select("#chartID").append("svg")
     .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("height", height + margin.top + margin.bottom+100)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -52,7 +52,10 @@
   var xAxis_g = svgContainer.append("g")
     .attr("class", "x axis")
     .attr("transform", "translate(0," + (height) + ")")
-    .call(xAxis);
+    .call(xAxis)
+	.selectAll("text")
+    .attr("transform","rotate(-45)")
+    .attr("x",-40);
 
   var yAxis_g = svgContainer.append("g")
     .attr("class", "y axis")
@@ -92,7 +95,7 @@
   // resize the chart
   if(width<870){
      xScale.rangeRoundBands([0, width], .1);
-     yScale.range([height, 0]);
+     yScale.range([height+100, 0]);
 
      yAxis.ticks(Math.max(height/50, 2));
      xAxis.ticks(Math.max(width/50, 2));
@@ -107,6 +110,6 @@
                  .attr("x",function(d) { return d.name; })
                  .attr("width", xScale.rangeBand());
 
-     svgContainer.select('.x.axis').call(xAxis.orient('bottom')); 
+     svgContainer.select('.x.axis').call(xAxis.orient('bottom')).selectAll("text").attr('dy','0.5em').attr('dx','-3em'); 
   }  
 }
