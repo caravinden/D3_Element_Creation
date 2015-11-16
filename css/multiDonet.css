@@ -1,0 +1,77 @@
+
+.arc path {
+  stroke: #fff;
+  stroke-width:3px;  
+}
+
+.goalLevel_Donet_arc_outer{
+  cursor: pointer;
+}
+.moduleLevel_Donet_arc_inner:hover {
+  cursor: auto;
+}
+.moduleLevel_Donet_arc_outer:hover {
+  cursor: pointer;
+}
+.moduleLevel_Donet_arc_outer1, .moduleLevel_Donet_arc_outer2, .goalLevel_Donet_arc_outer1,.goalLevel_Donet_arc_outer2  {
+  visibility: hidden;
+}
+
+.arcInnerTitle {
+	font-family: Open Sans;
+    font-size: 1.2em;
+    fill: gray;
+}
+.timeSpent {
+	font-family: Open Sans;
+    font-size: 16px;
+    font-weight: 600;
+    fill : gray;
+}
+.timeSpentUnit {
+	font-family: Open Sans;
+    font-size: 9px;
+    fill : gray;
+}
+.arcLabel {
+	font-family: Open Sans;
+    font-size: 14px;
+    font-weight: 500;
+    fill: gray;
+}
+.donetLegend {
+	font-family: Open Sans;
+  font-size: 10px;
+  font-weight: 500;
+  visibility: hidden;
+}
+.time_spent_learner_label{
+  font-family: Open Sans;
+  font-weight: 600;
+  color: #f26261;
+  } 
+.time_spent_instructor_label{
+  font-family: Open Sans;
+  font-weight: 600;
+  color: #fed006;
+}
+.time_spent_group_label {
+  font-family: Open Sans;
+  font-weight: 600;
+  color: #41bdc0;
+}
+#time_spent_learner {
+  background-color: #f26261;
+  color: #fff;
+  width: 11%;
+}
+#time_spent_instructor {
+  background-color: #fed006;
+  color: #fff;
+  width: 11%;
+}
+#time_spent_group {
+  background-color: #41bdc0;
+  color: #fff;
+  width: 11%;
+}
