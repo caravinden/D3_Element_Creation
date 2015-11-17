@@ -4,6 +4,7 @@ var dataset3 = {"DATA":{"OBJSTATUS":[{"OBJID":"100","VALUE":10,"STATUS":"PASSED"
 var dataset4 = {"DATA":{"OBJSTATUS":[{"OBJID":"100","VALUE":100,"STATUS":"PASSED"},{"OBJID":"101","VALUE":800,"STATUS":"FAILED"},{"OBJID":"102","VALUE":200,"STATUS":"PASSED"}],"OBJDATA":[{"OBJID":"100","OBJNAME":"Goal name1","VALUE":100,"STATUS":"RANDOM"},{"OBJID":"101","OBJNAME":"Goal name2","VALUE":800,"STATUS":"RANDOM"},{"OBJID":"102","OBJNAME":"Goal name3","VALUE":200,"STATUS":"RANDOM"}],"INSTRUCTORDATA":[{"OBJID":"100","VALUE":150},{"OBJID":"101","VALUE":10},{"OBJID":"102","VALUE":50}],"GROUPDATA":[{"OBJID":"100","VALUE":500},{"OBJID":"101","VALUE":85},{"OBJID":"102","VALUE":258}]},"TOTALTIMESPENT":"1000","UNIT":"HOUR"};
 
 var clicked_arc_color, clicked_arc;
+/*The functin that helps to generate multi layered donet chart, onclick of any of the arc will pop up with sub sections */
 function generateMultilayerDonet(data, chartID, timesepent, label){
   var dataset = data.DATA;
   var arcSection;
