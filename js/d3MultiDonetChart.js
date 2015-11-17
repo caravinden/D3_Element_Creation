@@ -124,9 +124,8 @@ svg.append("text")
       .attr("class", "arcLabel")
       .text(label);     
     
-// On click of any portion of the arc to append arc for two layer outer arc   
+// On click of any portion of the arc to append arc with two layer outer arc   
     path.on('click',function(d){
-     //console.log(d.startAngle,d.endAngle);
       var sAngle = d.startAngle, eAngle = d.endAngle, outer_arc2, outer_arc3;
       outer_arc2 = getOuterArcValue(dataset.INSTRUCTORDATA, $(this).attr('arcsection'));
       outer_arc3 = getOuterArcValue(dataset.GROUPDATA, $(this).attr('arcsection'));
@@ -192,5 +191,4 @@ $('body').mouseup(function(e) {
   $('path').css('opacity','1') 
   $('.moduleLevel_Donet_arcPath_outer1').css('visibility','hidden');
   $('.goalLevel_Donet_arcPath_outer1').css('visibility','hidden');
-  //$('.donetLegend').css('visibility','hidden')     
 })
