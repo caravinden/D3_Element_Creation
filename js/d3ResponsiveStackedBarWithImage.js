@@ -64,7 +64,12 @@ function generateStackedBarWithImage(chartID, data_json) {
   var yAxis = d3.svg.axis()
     .scale(yScale)
     .orient("left");
-  
+
+  // Define the div for the tooltip
+  var tooltipDiv = d3.select("#"+chartID).append("div") 
+    .attr("class", "tooltip")      
+    .style("opacity", 0);
+    
   var svgContainer = d3.select("#"+chartID).append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom+100)
@@ -134,7 +139,23 @@ function generateStackedBarWithImage(chartID, data_json) {
               var img = imageArray[ num ];
               return imgPath+img
             } 
-          });
+          })
+           .on("click", function(d) {  
+                tooltipDiv.transition()    
+                  .duration(200)    
+                  .style("opacity", .9);
+                $(this).siblings().css('opacity','0.3')
+                $(this).css('opacity','1')
+                tooltipDiv.html('Outcome Name :'+ d.outcomename+"<br/>"+'Associated Activity: '+d.associatedActivity+"<br>"+'Obtained On: '+d.obtaineddate+"<br>")  
+                    .style("left", (d3.event.pageX - 80)  + "px")   
+                    .style("top", (d3.event.pageY - 110) + "px");  
+                })          
+            .on("mouseout", function(d) {   
+                tooltipDiv.transition()    
+                  .duration(500)    
+                  .style("opacity", 0);
+                  $('image').css('opacity','1') 
+      });          
            
 }
 generateStackedBarWithImage('chartID',data_json_stackedbarIMG);
