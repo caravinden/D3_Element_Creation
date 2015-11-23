@@ -1,11 +1,11 @@
 
 var data_json_stackedbarIMG = [{"scale":"JAN","count":4,"outcomes":[{"name":"outcome1","id":"124","associatedActivity":"test","obtainedon":"26-dec-2015","time":"20hr"},{"name":"outcome2","id":"125","associatedActivity":"test","obtainedon":"26-dec-2015","time":"20hr"},{"name":"outcome3","id":"126","associatedActivity":"test","obtainedon":"26-dec-2015","time":"20hr"},{"name":"outcome4","id":"127","associatedActivity":"test","obtainedon":"26-dec-2015","time":"20hr"}]},{"scale":"FEB","count":2,"outcomes":[{"name":"outcome1","id":"110","associatedActivity":"test","obtainedon":"26-dec-2015","time":"20hr"},{"name":"outcome2","id":"111","associatedActivity":"test","obtainedon":"26-dec-2015","time":"20hr"}]},{"scale":"MAR","count":5,"outcomes":[{"name":"outcome1","id":"120","associatedActivity":"test","obtainedon":"26-dec-2015","time":"20hr"},{"name":"outcome2","id":"121","associatedActivity":"test","obtainedon":"26-dec-2015","time":"20hr"},{"name":"outcome3","id":"121","associatedActivity":"test","obtainedon":"26-dec-2015","time":"20hr"},{"name":"outcome4","id":"121","associatedActivity":"test","obtainedon":"26-dec-2015","time":"20hr"},{"name":"outcome5","id":"121","associatedActivity":"test","obtainedon":"26-dec-2015","time":"20hr"}]},{"scale":"APL","count":2,"outcomes":[{"name":"outcome1","id":"1104","associatedActivity":"test","obtainedon":"26-dec-2015","time":"20hr"},{"name":"outcome2","id":"1114","associatedActivity":"test","obtainedon":"26-dec-2015","time":"20hr"}]}];
 
-/*This function used to generate stackedbar with image */
+// This function used to generate stackedbar with image 
 function generateStackedBarWithImage(chartID, data_json) {
-  // To find maximum count value
+// To find maximum count value
   var maxValue = Math.max.apply(Math, data_json.map(function(d){ return d.count }))
-  // To create stacked bar json format based on given JSON 
+// To create stacked bar json format based on given JSON 
   var new_temp=[]; 
   data_json.map(function(d){
     new_jsn ={},  new_arr = new Array();
@@ -69,7 +69,7 @@ function generateStackedBarWithImage(chartID, data_json) {
   var tooltipDiv = d3.select("#"+chartID).append("div") 
     .attr("class", "tooltip")      
     .style("opacity", 0);
-    
+
   var svgContainer = d3.select("#"+chartID).append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom+100)
