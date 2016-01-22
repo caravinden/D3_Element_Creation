@@ -48,7 +48,7 @@ var gs = svg.selectAll("g")
           return arcGrpType;
         });
 
-
+var jV=0;
 var path = gs.selectAll("path")
     .data(function(d) {return pie(d); })
     .enter().append("path")
@@ -86,7 +86,7 @@ var path = gs.selectAll("path")
         return chartID+"_arc_section_"+d.data.OBJID;
       }
     })
-    .attr("d", function(d, i, j) {
+/*    .attr("d", function(d, i, j) {
       var angle
       if(j==0){
         angle = arc.innerRadius(innerRadius+(10*j)).outerRadius(innerRadius+5+(5*j))(d); 
@@ -94,7 +94,21 @@ var path = gs.selectAll("path")
         angle = arc.innerRadius(innerRadius+(7*j)).outerRadius(innerRadius+22+(22*j))(d); 
       }
       return angle;
-    });
+    });*/
+    .transition()
+    .duration(1000)
+    .attrTween("d", function(d, i, j){
+      if(i==0){
+        jV = jV+1;
+      }
+      var start = {startAngle: 0,endAngle: 0};
+      var ip = d3.interpolate(start, d);
+      if((jV-1)==0){
+        return function(d) { return arc.innerRadius(innerRadius+(5*(jV-1))).outerRadius(innerRadius+5+(5*(jV-1)))(ip(d)) };
+      }else if((jV-1)==1) {
+        return function(d) { return arc.innerRadius(innerRadius+(7*(jV-1))).outerRadius(innerRadius+15+(15*(jV-1)))(ip(d)); };
+      }
+    })
 
 // Time spent inner text append     
 svg.append("text")
